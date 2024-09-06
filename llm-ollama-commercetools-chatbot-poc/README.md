@@ -28,5 +28,5 @@ python ingest.py
 5. Run the script, to process data with LLM RAG and return the answer: 
 
 ```
-python main.py "What is the invoice number value?"
+python main.py "Recommend me some  Joggers?"
 ```

@@ -1,68 +1,438 @@
-python main.py "retrieve one value: invoice number. format response as following {\"invoice_number\": {}}"
+$ python main.py "Hi"
+Loading embedding model...
+FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+No JSON object found in the string.
 
-{'invoice_number': 61356291}
+Answer:
+  I'm sorry, but I need more information in order to provide a helpful answer. Please provide some context or details related to your question, and I'll do my best to assist you.
 ==================================================
-Time to retrieve answer: 97.6245634490042
+Time to retrieve answer: 17.49051220900583
 
 
-python main.py "retrieve one value: invoice date. format response as following {\"invoice_date\": {}}"
+$ python main.py "I am looking for some products to buy."
+Loading embedding model...
+ FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+No JSON object found in the string.
 
-{'invoice_date': '09/06/2012'}
+Answer:
+  Here's a product you might be interested in: Poloshique Cream Polo T-Shirt, a slim fit t-shirt made from 100% cotton fabric that is perfect for casual occasions. It's available in various sizes and can be found under the "tshirts" category.
 ==================================================
-Time to retrieve answer: 97.94699124002364
+Time to retrieve answer: 18.58077412500279
 
 
-python main.py "retrieve three values: client name, complete address and tax ID. format response as following {\"client_name\": {},\"address\": {},\"tax_id\": {}}"
 
-{'client_name': 'Rodriguez-Stevens', 'address': '2280 Angela Plain', 'tax_id': '939-98-8477'}
+$ python main.py "retrieve one value: sku id. format response as following {\"sku\": {}}"
+Loading embedding model...
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+
+Answer:
+ {'sku': 'sku-0011'}
 ==================================================
-Time to retrieve answer: 102.29442486795597
+Time to retrieve answer: 14.588340832997346
+$ python ingest.py
+Loaded 52 splits
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Vector store created at vectorstore/sparrow
 
 
-python main.py "retrieve three values: seller name, complete address and tax ID. format response as following {\"seller_name\": {},\"address\": {},\"tax_id\": {}}"
+$ python main.py "retrieve one value: sku id. format response as following {\"sku\": {}}"
+Loading embedding model...
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
 
-{'seller_name': 'Chapman, Kim and Green', 'address': '64731 James Branch, Smithmouth, NC 26872', 'tax_id': '949-84-9105'}
+Answer:
+ {'sku': 'sku-0011'}
 ==================================================
-Time to retrieve answer: 114.44599518104224
+Time to retrieve answer: 12.20007945800171
 
 
-python main.py "retrieve one value: invoice iban. format response as following {\"invoice_iban\": {}}"
 
-{'invoice_iban': 'GB50ACIE59715038217063'}
+$ python main.py "I am travelling to US. Do you have some products to recommend. format response as following [{\"sku\": {},\"key\":{},\"description\":{}}]"
+Loading embedding model...
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+
+Answer:
+ {'sku': '123-sku', 'key': 'sample-p-key123', 'description': 'Roadster Lifestyle Co. Men Pure Cotton Cargo Jogger'}
 ==================================================
-Time to retrieve answer: 100.62414190900745
+Time to retrieve answer: 17.362477624999883
 
 
-python main.py "retrieve two values: net price and gross worth for the second invoice item from the table. format response as following {\"net_price\": {},\"gross_worth\": {}}"
 
-{'net_price': 123.55, 'gross_worth': 246.7}
+$ python main.py "Find me all Joggers. format response as following [{\"sku\": {},\"key\":{},\"description\":{}}]"
+Loading embedding model...
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+
+Answer:
+ {'sku': 'Puma Cargo jogger', 'key': 'clothing-and-apparel', 'description': 'men pure cotton cargo jogger'}
 ==================================================
-Time to retrieve answer: 103.98144886799855
+Time to retrieve answer: 15.05714820799767
 
 
-python main.py "retrieve gross worth value for each invoice item from the table. format response as following {\"gross_worth\": []}"
+$ python main.py "Find me all Joggers. format response as following [{\"sku\": {},\"key\":{},\"description\":{}}]"
+Loading embedding model...
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+Error parsing JSON: Extra data: line 5 column 4 (char 118)
 
-{'gross_worth': [66.0, 123.55, 8.25, 14.29]}
+Answer:
+ [
+  {
+    "sku": "sku-00113355",
+    "key": "Puma Cargo jogger red",
+    "description": "Puma cotton cargo red jogger"
+  },
+  {
+    "sku": "sku-005643",
+    "key": "Puma Cargo jogger",
+    "description": "Puma cotton cargo red jogger"
+  }
+]
 ==================================================
-Time to retrieve answer: 99.5734898429946
+Time to retrieve answer: 20.656716707999294
 
 
-python main.py "retrieve names of invoice items included into this invoice. format response as following {\"item_name\": []}"
+$ python main.py "Find me all Joggers. format response as following [{\"sku\": {},\"key\":{},\"description\":{},\"order_id\":{}}]"
+Loading embedding model...
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+Error parsing JSON: Extra data: line 6 column 4 (char 140)
 
-{'item_name': ['Wine Glasses Goblets Pair Clear Glass', 'With Hooks Stemware Storage Multiple Uses Iron Wine Rack Hanging Glass', 'Replacement Corkscrew Parts Spiral Worm Wine Opener Bottle Houdini', 'HOME ESSENTIALS GRADIENT STEMLESS WINE GLASSES SET OF 4 20 FL OZ (591 ml) NEW']}
+Answer:
+ [
+  {
+    "sku": "sku-00113355",
+    "key": "Puma Cargo jogger red",
+    "description": "Puma cotton cargo red jogger",
+    "order_id": null
+  },
+  {
+    "sku": "sku-005643",
+    "key": "Puma Cargo jogger",
+    "description": "Puma cotton cargo red jogger",
+    "order_id": null
+  }
+]
 ==================================================
-Time to retrieve answer: 110.7761614319752
+Time to retrieve answer: 19.788445042002422
 
 
-python main.py "retrieve invoice total info. use this format for the answer {\"invoice_total\": {}}"
 
-{'invoice_total': 212.09}
+$ python main.py "Find me all Joggers. format response as following [{\"sku\": {},\"key\":{},\"description\":{},\"order_id\":{}}]"
+Loading embedding model...
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+Error parsing JSON: Extra data: line 6 column 4 (char 140)
+
+Answer:
+ [
+  {
+    "sku": "sku-00113355",
+    "key": "Puma Cargo jogger red",
+    "description": "Puma cotton cargo red jogger",
+    "order_id": null
+  },
+  {
+    "sku": "sku-005643",
+    "key": "Puma Cargo jogger",
+    "description": "Puma cotton cargo red jogger",
+    "order_id": null
+  }
+]
 ==================================================
-Time to retrieve answer: 102.51593980001053
+Time to retrieve answer: 26.179924290998315
 
 
-python main.py "retrieve three values: total gross worth, invoice number and invoice date. use this format for the response {\"total_gross_worth\": {}, \"invoice_number\": {}, \"invoice_date\": {}}"
 
-{'total_gross_worth': 212.09, 'invoice_number': 61356291, 'invoice_date': '09/06/2012'}
+$ python main.py "Find me all Joggers. format response as following [{\"sku\": {},\"key\":{},\"description\":{},\"order_id\":{}}]"
+Loading embedding model...
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+[
+  {
+    "sku": "sku-00113355",
+    "key": "Puma Cargo jogger red",
+    "description": "Puma cotton cargo red jogger",
+    "order_id": null
+  },
+  {
+    "sku": "sku-005643",
+    "key": "Puma Cargo jogger",
+    "description": "Puma cotton cargo red jogger",
+    "order_id": null
+  }
+]
+Error parsing JSON: Extra data: line 6 column 4 (char 140)
+
+Answer:
+ [
+  {
+    "sku": "sku-00113355",
+    "key": "Puma Cargo jogger red",
+    "description": "Puma cotton cargo red jogger",
+    "order_id": null
+  },
+  {
+    "sku": "sku-005643",
+    "key": "Puma Cargo jogger",
+    "description": "Puma cotton cargo red jogger",
+    "order_id": null
+  }
+]
 ==================================================
-Time to retrieve answer: 109.37831377796829
+Time to retrieve answer: 18.108073249997688
+
+
+
+$ python main.py "Find me all Joggers. format response as following [{\"sku\": {},\"key\":{},\"description\":{},\"order_id\":{}}]"
+Loading embedding model...
+
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+{'query': 'Find me all Joggers. format response as following [{"sku": {},"key":{},"description":{},"order_id":{}}]', 'result': '[\n  {\n    "sku": "sku-00113355",\n    "key": "Puma Cargo jogger red",\n    "description": "Puma cotton cargo red jogger",\n    "order_id": null\n  },\n  {\n    "sku": "sku-005643",\n    "key": "Puma Cargo jogger",\n    "description": "Puma cotton cargo red jogger",\n    "order_id": null\n  }\n]', 'source_documents': [Document(page_content='id: b07eb064-cea5-4da9-a0d8-43e0f9df5fb2\nproductType: Clothing and apparel\nproductTypeKey: clothing-and-apparel\nname.en-US: Puma Cargo jogger\ndescription.en-US: Puma lifestyle co. men pure cotton cargo jogger\ncategories: \nslug.en-US: Puma-test-key123\n_hasStagedChanges: false\n_published: true\nkey: Puma-test-key123\ntax: Standard Tax Category\npriceMode: \ncreatedAt: 2024-07-29T14:09:15.043Z\nlastModifiedAt: 2024-08-12T09:58:59.928Z\nvariantId: 1\nsku: sku-0011\nvariantKey: sku-0011', metadata={'row': 9, 'source': 'data/Clothing-and-apparel.csv'}), Document(page_content='id: 01eb1f6e-3810-4a1d-9ce8-9760366aa835\nproductType: Clothing and apparel\nproductTypeKey: clothing-and-apparel\nname.en-US: roadster cotton cargo jogger\ndescription.en-US: roadster lifestyle co. men pure cotton cargo jogger\ncategories: \nslug.en-US: sample-p-key123\n_hasStagedChanges: false\n_published: true\nkey: sample-p-key123\ntax: Standard Tax Category\npriceMode: \ncreatedAt: 2024-07-29T14:09:15.372Z\nlastModifiedAt: 2024-08-21T17:00:32.707Z\nvariantId: 1\nsku: 123-sku\nvariantKey: 123-sku', metadata={'row': 1, 'source': 'data/Clothing-and-apparel.csv'}), Document(page_content='id: 56d7337d-5c03-4169-9922-7f800822be07\nproductType: Clothing and apparel\nproductTypeKey: clothing-and-apparel\nname.en-US: Puma Cargo jogger\ndescription.en-US: Puma lifestyle co. men pure cotton cargo jogger\ncategories: \nslug.en-US: Puma-test-key1234\n_hasStagedChanges: false\n_published: true\nkey: Puma-test-key1234\ntax: Standard Tax Category\npriceMode: \ncreatedAt: 2024-07-29T14:09:15.039Z\nlastModifiedAt: 2024-08-12T09:49:17.676Z\nvariantId: 1\nsku: sku-001134\nvariantKey: sku-001134', metadata={'row': 4, 'source': 'data/Clothing-and-apparel.csv'}), Document(page_content="id: 9abb54e5-4233-44ce-8c2a-7795ed05b911\nproductType: Clothing and apparel\nproductTypeKey: clothing-and-apparel\nname.en-US: Casual shirts test product\ndescription.en-US: Casual shirts for men\ncategories: \nslug.en-US: casual-shirt\n_hasStagedChanges: false\n_published: true\nkey: casual-men-shirt\ntax: Standard Tax Category\npriceMode: \ncreatedAt: 2024-07-29T14:09:15.062Z\nlastModifiedAt: 2024-08-20T08:20:53.951Z\nvariantId: 1\nsku: 3\nvariantKey: sku3\nimages: https://images.cdn.us-central1.gcp.commercetools.com/23373b68-1d66-4a76-be69-d7d4f5487bf1/1-CjDxPuqA.jpeg||659x879;https://images.cdn.us-central1.gcp.commercetools.com/23373b68-1d66-4a76-be69-d7d4f5487bf1/1-BF4sfMJG.jpeg||659x879\nprices: US-USD 1500$2023-05-31T18:30:00.000Z~9999-06-29T18:30:00.000Z\ncolor.en-US: Red\nsize.en-US: L\nproduct-name.en-US: Casual shirt for men\nshort-description.en-US: Men's Regular Fit Solid Soft Touch Cotton Casual Shirt\nrating: 4.5\nreview-counts: 1200\nproduct-title.en-US: Pan india\nsleeve-length: Full", metadata={'row': 10, 'source': 'data/Clothing-and-apparel.csv'}), Document(page_content='variantKey: SKU002\nimages: https://www.snitch.co.in/cdn/shop/files/9dae3d392501ec8b5fdc500bf7c16950.webp?v=1715582005&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/b1f3b09525dda86e33e6a475e40c5f03.webp?v=1715582005&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/2eed809a888dbe58900361fa9d780e1a.webp?v=1715582005&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/a4a088b5ab14b2b66a8f383b0dd13876.webp?v=1715582005&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/869f5e99de2d120262b9fa3979db3c93.webp?v=1715582005&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/b9957c658264bea42bb1cc0de0248329.webp?v=1715582005&width=1800||800x1200\nprices: US-USD 11199$2023-05-31T18:30:00.000Z~9999-06-03T18:30:00.000Z\ncolor.en-US: Black\nsize.en-US: S\nproduct-name.en-US: Poloshique Black Polo T-Shirt', metadata={'row': 3, 'source': 'data/Clothing-and-apparel.csv'}), Document(page_content='id: 931dd9fb-ae29-4b8d-ac2d-829b2b4641da\nproductType: Clothing and apparel\nproductTypeKey: clothing-and-apparel\nname.en-US: Raw Edge T-Shirt\ndescription.en-US: Raw Edge T-Shirt\ncategories: tshirts\nslug.en-US: Women-Puma-test-key1234\n_hasStagedChanges: false\n_published: true\nkey: Raw-Edge-T-Shirt-key1234\ntax: Standard Tax Category\npriceMode: Embedded\ncreatedAt: 2024-07-29T14:09:15.011Z\nlastModifiedAt: 2024-08-20T16:42:49.657Z\nvariantId: 1\nsku: sku-0011111\nvariantKey: sku-0011111\nimages: https://www.snitch.co.in/cdn/shop/products/Snitch_9thNov21_4526.jpg?v=1638191302&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/products/Snitch_9thNov21_4517.jpg?v=1685537802&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/products/Snitch_9thNov21_4508.jpg?v=1685537802&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/products/Snitch_9thNov21_4510.jpg?v=1638191267&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/products/Snitch_9thNov21_4512.jpg?v=1638191267&width=1800||800x1200', metadata={'row': 5, 'source': 'data/Clothing-and-apparel.csv'}), Document(page_content='variantKey: sku-00113355\nimages: https://www.snitch.co.in/cdn/shop/files/4MST2228-04-M23.jpg?v=1707292733&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/4MST2228-04-M2.jpg?v=1707292733&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/4MST2228-04-M19.jpg?v=1707292733&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/4MST2228-04-M26.jpg?v=1707292733&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/4MST2228-04-M5.jpg?v=1707292733&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/4MST2228-04-M11.jpg?v=1707292733&width=1800||800x1200\nprices: US-USD 21199$2024-03-06T18:30:00.000Z~2025-03-27T18:30:00.000Z\ncolor.en-US: White\nsize.en-US: XL\nproduct-name.en-US: Quintet white Polo T-Shirt', metadata={'row': 7, 'source': 'data/Clothing-and-apparel.csv'}), Document(page_content='prices: US-USD 1099$2023-05-31T18:30:00.000Z~9999-06-03T18:30:00.000Z\ncolor.en-US: Blue\nsize.en-US: L\nproduct-name.en-US: Puma Cargo jogger red\nshort-description.en-US: Puma cotton cargo red jogger\nrating: 3\nreview-counts: 4331\nproduct-title.en-US: Puma Cargo jogger\nsleeve-length: Full\nBrand: Roadster', metadata={'row': 4, 'source': 'data/Clothing-and-apparel.csv'}), Document(page_content='variantKey: sku-005643\nimages: https://www.snitch.co.in/cdn/shop/files/4MST2237-08-M4.jpg?v=1705920832&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/4MST2237-08-M26.jpg?v=1705920832&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/4MST2237-08-M28.jpg?v=1705920832&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/4MST2237-08-M19.jpg?v=1705920832&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/4MST2237-08-M12.jpg?v=1705920832&width=1800||800x1200;https://www.snitch.co.in/cdn/shop/files/4MST2237-08-M2.jpg?v=1705920832&width=1800||800x1200\nprices: US-USD 11199$2024-03-06T18:30:00.000Z~2025-03-27T18:30:00.000Z\ncolor.en-US: Navy\nsize.en-US: L\nproduct-name.en-US: Essentials Navy T-Shirt', metadata={'row': 6, 'source': 'data/Clothing-and-apparel.csv'}), Document(page_content='prices: US-USD 11199$2023-06-05T18:30:00.000Z~9999-06-03T18:30:00.000Z\ncolor.en-US: Blue\nsize.en-US: L\nproduct-name.en-US: Puma Cargo jogger red\nshort-description.en-US: Puma cotton cargo red jogger\nrating: 3\nreview-counts: 4331\nproduct-title.en-US: Puma Cargo jogger\nsleeve-length: Full\nBrand: Roadster', metadata={'row': 9, 'source': 'data/Clothing-and-apparel.csv'})]}
+Error parsing JSON: Extra data: line 6 column 4 (char 140)
+
+Answer:
+ [
+  {
+    "sku": "sku-00113355",
+    "key": "Puma Cargo jogger red",
+    "description": "Puma cotton cargo red jogger",
+    "order_id": null
+  },
+  {
+    "sku": "sku-005643",
+    "key": "Puma Cargo jogger",
+    "description": "Puma cotton cargo red jogger",
+    "order_id": null
+  }
+]
+==================================================
+Time to retrieve answer: 19.328513249995012
+
+
+
+$ python main.py "Find me all Joggers. format response as following [{\"sku\": {},\"key\":{},\"description\":{},\"order_id\":{}}]"
+Loading embedding model...
+
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+{'query': 'Find me all Joggers. format response as following [{"sku": {},"key":{},"description":{},"order_id":{}}]', 'result': '[\n  {\n    "sku": "sku-00113355",\n    "key": "Puma Cargo jogger red",\n    "description": "Puma cotton cargo red jogger",\n    "order_id": null\n  },\n  {\n    "sku": "sku-005643",\n    "key": "Puma Cargo jogger",\n    "description": "Puma cotton cargo red jogger",\n    "order_id": null\n  }\n]'}
+Error parsing JSON: Extra data: line 6 column 4 (char 140)
+
+Answer:
+ [
+  {
+    "sku": "sku-00113355",
+    "key": "Puma Cargo jogger red",
+    "description": "Puma cotton cargo red jogger",
+    "order_id": null
+  },
+  {
+    "sku": "sku-005643",
+    "key": "Puma Cargo jogger",
+    "description": "Puma cotton cargo red jogger",
+    "order_id": null
+  }
+]
+==================================================
+Time to retrieve answer: 17.2965360829985
+
+
+
+$ python main.py "Find me all Joggers. format response as following {original_response} :: [{\"sku\": {},\"key\":{},\"description\":{},\"order_id\":{}}]"
+Loading embedding model...
+
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+{'query': 'Find me all Joggers. format response as following {original_response} :: [{"sku": {},"key":{},"description":{},"order_id":{}}]', 'result': ':: [\n  {"sku": "sku-00113355", "key": "Puma Cargo jogger red", "description": "Puma cotton cargo red jogger", "order_id": null},\n  {"sku": "sku-005643", "key": "Puma Cargo jogger", "description": "Puma cotton cargo red jogger", "order_id": null}\n]'}
+Error parsing JSON: Extra data: line 1 column 121 (char 120)
+
+Answer:
+ :: [
+  {"sku": "sku-00113355", "key": "Puma Cargo jogger red", "description": "Puma cotton cargo red jogger", "order_id": null},
+  {"sku": "sku-005643", "key": "Puma Cargo jogger", "description": "Puma cotton cargo red jogger", "order_id": null}
+]
+==================================================
+Time to retrieve answer: 20.59387675000471
+
+
+
+
+$ python main.py "Find me all Joggers. format response as json.
+> "
+Loading embedding model...
+
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+{'query': 'Find me all Joggers. format response as json.\n', 'result': '{\n  "error": "No product found matching the query"\n}'}
+
+Answer:
+ {'error': 'No product found matching the query'}
+==================================================
+Time to retrieve answer: 16.631491000000096
+
+
+
+$ python main.py "Find me all Joggers. format response as JSON"
+Loading embedding model...
+
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+{'query': 'Find me all Joggers. format response as JSON', 'result': '{\n  "error": {\n    "code": "NOT_FOUND",\n    "message": "No products found matching your query."\n  }\n}'}
+
+Answer:
+ {'error': {'code': 'NOT_FOUND', 'message': 'No products found matching your query.'}}
+==================================================
+Time to retrieve answer: 17.537094416999025
+
+
+
+
+$ python main.py "Find me Jogger. format response as JSON"
+Loading embedding model...
+
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+{'query': 'Find me Jogger. format response as JSON', 'result': '{\n  "name": "Jogger",\n  "description": "A type of casual, comfortable shoe designed for running or jogging.",\n  "features": [\n    "Breathable mesh upper",\n    "Soft, cushioned insole",\n    "Flexible outsole for traction"\n  ],\n  "styles": [\n    "Classic white and blue",\n    "Bold colorways",\n    "Limited edition collaborations"\n  ]\n}'}
+
+Answer:
+ {'name': 'Jogger', 'description': 'A type of casual, comfortable shoe designed for running or jogging.', 'features': ['Breathable mesh upper', 'Soft, cushioned insole', 'Flexible outsole for traction'], 'styles': ['Classic white and blue', 'Bold colorways', 'Limited edition collaborations']}
+==================================================
+Time to retrieve answer: 19.92882762500085
+
+
+
+$ python main.py "Find me red Jogger. Transform  matching record in the response as JSON"
+Loading embedding model...
+
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+{'query': 'Find me red Jogger. Transform  matching record in the response as JSON', 'result': '{\n  "id": "9abb54e5-4233-44ce-8c2a-7795ed05b911",\n  "productType": "Clothing and apparel",\n  "name.en-US": "Casual shirts test product",\n  "categories": [],\n  "slug.en-US": "casual-shirt",\n  "_hasStagedChanges": false,\n  "_published": true,\n  "key": "casual-men-shirt",\n  "tax": "Standard Tax Category",\n  "priceMode": null,\n  "createdAt": "2024-07-29T14:09:15.062Z",\n  "lastModifiedAt": "2024-08-20T08:20:53.951Z",\n  "variantId": 1,\n  "sku": 3,\n  "variantKey": "sku3",\n  "images": [\n    "https://images.cdn.us-central1.gcp.commercetools.com/23373b68-1d66-4a76-be69-d7d4f5487bf1/1-CjDxPuqA.jpeg||659x879",\n    "https://images.cdn.us-central1.gcp.commercetools.com/23373b68-1d66-4a76-be69-d7d4f5487bf1/1-BF4sfMJG.jpeg||659x879"\n  ],\n  "prices": {\n    "US-USD": {\n      "amount": 1500,\n      "validFrom": "2023-05-31T18:30:00.000Z",\n      "validUntil": "9999-06-29T18:30:00.000Z"\n    }\n  },\n  "color.en-US": "Red",\n  "size.en-US": "L",\n  "product-name.en-US": "Casual shirt for men",\n  "short-description.en-US": "Men\'s Regular Fit Solid Soft Touch Cotton Casual Shirt",\n  "rating": 4.5,\n  "review-counts": 1200,\n  "product-title.en-US": "Pan india",\n  "sleeve-length": "Full"\n}'}
+
+Answer:
+ {'id': '9abb54e5-4233-44ce-8c2a-7795ed05b911', 'productType': 'Clothing and apparel', 'name.en-US': 'Casual shirts test product', 'categories': [], 'slug.en-US': 'casual-shirt', '_hasStagedChanges': False, '_published': True, 'key': 'casual-men-shirt', 'tax': 'Standard Tax Category', 'priceMode': None, 'createdAt': '2024-07-29T14:09:15.062Z', 'lastModifiedAt': '2024-08-20T08:20:53.951Z', 'variantId': 1, 'sku': 3, 'variantKey': 'sku3', 'images': ['https://images.cdn.us-central1.gcp.commercetools.com/23373b68-1d66-4a76-be69-d7d4f5487bf1/1-CjDxPuqA.jpeg||659x879', 'https://images.cdn.us-central1.gcp.commercetools.com/23373b68-1d66-4a76-be69-d7d4f5487bf1/1-BF4sfMJG.jpeg||659x879'], 'prices': {'US-USD': {'amount': 1500, 'validFrom': '2023-05-31T18:30:00.000Z', 'validUntil': '9999-06-29T18:30:00.000Z'}}, 'color.en-US': 'Red', 'size.en-US': 'L', 'product-name.en-US': 'Casual shirt for men', 'short-description.en-US': "Men's Regular Fit Solid Soft Touch Cotton Casual Shirt", 'rating': 4.5, 'review-counts': 1200, 'product-title.en-US': 'Pan india', 'sleeve-length': 'Full'}
+==================================================
+Time to retrieve answer: 34.94598879200203
+
+$ python main.py "I am looking for some jogger pants."
+Loading embedding model...
+: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Loading vector store and retriever...
+Loading prompt template...
+Loading Ollama...
+Loading QA chain...
+Retrieving answer...
+{'query': 'I am looking for some jogger pants.', 'result': "Based on your request for jogger pants, I've found some matching products.\n\nHere are the details:\n\n1. **Puma Cargo Jogger Red**\n\t* Product Name: Puma Cargo jogger red\n\t* Short Description: Puma cotton cargo red jogger\n\t* Rating: 3\n\t* Review Counts: 4331\n\t* SKU: sku-0011\n2. **Roadster Cotton Cargo Jogger**\n\t* Product Name: roadster cotton cargo jogger\n\t* Short Description: roadster lifestyle co. men pure cotton cargo jogger\n\t* SKU: 123-sku\n\nPlease note that I've only provided information on products that match your request for jogger pants. If you'd like to know more about any of these products or have further questions, feel free to ask!"}
+No JSON object found in the string.
+
+Answer:
+ Based on your request for jogger pants, I've found some matching products.
+
+Here are the details:
+
+1. **Puma Cargo Jogger Red**
+	* Product Name: Puma Cargo jogger red
+	* Short Description: Puma cotton cargo red jogger
+	* Rating: 3
+	* Review Counts: 4331
+	* SKU: sku-0011
+2. **Roadster Cotton Cargo Jogger**
+	* Product Name: roadster cotton cargo jogger
+	* Short Description: roadster lifestyle co. men pure cotton cargo jogger
+	* SKU: 123-sku
+
+Please note that I've only provided information on products that match your request for jogger pants. If you'd like to know more about any of these products or have further questions, feel free to ask!
+==================================================
+Time to retrieve answer: 16.549987792008324

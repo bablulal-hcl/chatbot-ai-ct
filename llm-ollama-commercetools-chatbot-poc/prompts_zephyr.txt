@@ -1,0 +1,66 @@
+python main.py "retrieve one value: invoice number. format response as following {\"invoice_number\": {}}"
+
+{'invoice_number': '61356291'}
+==================================================
+Time to retrieve answer: 103.90454878797755
+
+
+python main.py "retrieve one value: invoice date. format response as following {\"invoice_date\": {}}"
+
+{'invoice_date': {'09/06/2012': {}}}
+==================================================
+Time to retrieve answer: 104.87561345699942
+
+
+python main.py "retrieve three values: client name, complete address and tax ID. format response as following {\"client_name\": {},\"address\": {},\"tax_id\": {}}"
+
+{'client_name': 'Rodriguez-Stevens', 'address': '2280 Angela Plain\nHortonshire, MS 93248', 'tax_id': '939-98-8477'}
+==================================================
+Time to retrieve answer: 108.91416592500173
+
+
+python main.py "retrieve three values: seller name, complete address and tax ID. format response as following {\"seller_name\": {},\"address\": {},\"tax_id\": {}}"
+
+{'seller_name': 'Chapman, Kim and Green', 'address': '64731 James Branch\nSmithmouth, NC 26872', 'tax_id': '949-84-9105'}
+==================================================
+Time to retrieve answer: 113.15477752301376
+
+
+python main.py "retrieve one value: invoice iban. format response as following {\"invoice_iban\": {}}"
+
+-
+
+
+python main.py "retrieve two values: net price and gross worth for the second invoice item from the table. format response as following {\"net_price\": {},\"gross_worth\": {}}"
+
+{'net_price': 280.8, 'gross_worth': 315.4}
+==================================================
+Time to retrieve answer: 129.65302655799314
+
+
+python main.py "retrieve gross worth value for each invoice item from the table. format response as following {\"gross_worth\": []}"
+
+{'gross_worth': [6600, 12355, 825, 1429]}
+==================================================
+Time to retrieve answer: 107.56224957900122
+
+
+python main.py "retrieve names of invoice items included into this invoice. format response as following {\"item_name\": []}"
+
+{'item_name': ['Wine Glasses Goblets Pair Clear', 'With Hooks Stemware Storage', 'Replacement Corkscrew Parts Spiral Worm Wine Opener Bottle Houdini', 'HOME ESSENTIALS GRADIENT STEMLESS WINE GLASSES SET OF 4 20 FL OZ (591 ml) NEW']}
+==================================================
+Time to retrieve answer: 135.3677220880054
+
+
+python main.py "retrieve invoice total info. use this format for the answer {\"invoice_total\": {}}"
+
+{'invoice_total': {'net_worth': 192.81, 'vat': 19.28, 'gross_worth': 212.09}}
+==================================================
+Time to retrieve answer: 111.45547287299996
+
+
+python main.py "retrieve three values: total gross worth, invoice number and invoice date. use this format for the response {\"total_gross_worth\": {}, \"invoice_number\": {}, \"invoice_date\": {}}"
+
+{'total_gross_worth': 21209, 'invoice_number': '61356291', 'invoice_date': '09/06/2012'}
+==================================================
+Time to retrieve answer: 122.91637057694606

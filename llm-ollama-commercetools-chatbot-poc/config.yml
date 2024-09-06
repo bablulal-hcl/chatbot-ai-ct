@@ -1,0 +1,12 @@
+CHUNK_SIZE: 1000
+CHUNK_OVERLAP: 30
+NUM_RESULTS: 10
+DATA_PATH: 'data/'
+EMBEDDINGS: 'sentence-transformers/all-mpnet-base-v2'
+VECTOR_DB: 'vectorstore/sparrow'
+NORMALIZE_EMBEDDINGS: True
+COLLECTION_NAME: 'sparrow'
+DEVICE: 'cpu'
+VECTOR_SPACE: 'cosine'
+LLM: 'llama3.1'
+#LLM: 'zephyr:7b-alpha-q5_K_M'

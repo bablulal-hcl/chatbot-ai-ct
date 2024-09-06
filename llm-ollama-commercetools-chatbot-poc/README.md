@@ -1,9 +1,8 @@
 ## Prerequisite
 
-ollama 
-
-python3 --version 
-Python 3.10.0
+### ollama 
+ 
+#### Python 3.10.0
  
 ## Quickstart
 
